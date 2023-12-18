@@ -65,10 +65,6 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::sortLists() {
-    ui->listWidgetAvailibleSharesList->sortItems();
-    ui->listWidgetUserSharesList->sortItems();
-}
 
 void MainWindow::on_pushButtonOrder_clicked() {
     QString details;
@@ -87,10 +83,7 @@ void MainWindow::on_pushButtonOrder_clicked() {
 }
 
 void MainWindow::handleOrderAndReset() {
-    if (ui->checkBoxSaveData->isChecked()) {
-        // Logik, um die Daten zu speichern (z.B. in einer Datei oder Datenbank)
-    } else {
-        // Setzen Sie alle Eingabefelder zurück
+    if (!ui->checkBoxSaveData->isChecked()) {
         ui->lineEditName->clear();
         ui->lineEditPLZ->clear();
         ui->comboBoxGender->setCurrentIndex(0);
@@ -170,7 +163,7 @@ void MainWindow::updateBankName() {
     QString iban = ui->lineEditIBAN->text();
 
     QMap<QString, QString> bankMapping;
-    bankMapping["DE1234567842"] = "Bob the Builder Bank";
+    bankMapping["DE1234567890"] = "Bob the Builder Bank";
     bankMapping["DE8765432165"] = "Musterbank AG";
     bankMapping["DE8710070000"] = "Deutsche Bank";
     bankMapping["DE8710040000"] = "Commerzbank";
@@ -210,8 +203,6 @@ int MainWindow::calculatePrice() {
 
 
 
-
-
 void MainWindow::addShare() {
     QList<QListWidgetItem *> items = ui->listWidgetAvailibleSharesList->selectedItems();
     if (!items.isEmpty()) {
@@ -221,7 +212,6 @@ void MainWindow::addShare() {
         }
         updatePrice();
     }
-    sortLists();
     checkOrderButtonState();
 }
 
@@ -229,7 +219,6 @@ void MainWindow::clearShares() {
     ui->listWidgetAvailibleSharesList->addItems(getUserShares());
     ui->listWidgetUserSharesList ->clear();
     updatePrice();
-    sortLists();
     checkOrderButtonState();
 }
 
@@ -242,7 +231,6 @@ void MainWindow::removeShare() {
         }
         updatePrice();
     }
-    sortLists();
     checkOrderButtonState();
 }
 

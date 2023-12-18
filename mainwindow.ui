@@ -37,7 +37,7 @@
            <cursorShape>ArrowCursor</cursorShape>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab">
            <attribute name="title">
@@ -231,7 +231,10 @@
                    <bool>true</bool>
                   </property>
                   <property name="selectionMode">
-                   <enum>QAbstractItemView::MultiSelection</enum>
+                   <enum>QAbstractItemView::ExtendedSelection</enum>
+                  </property>
+                  <property name="sortingEnabled">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -361,8 +364,14 @@
                     <height>1000</height>
                    </size>
                   </property>
+                  <property name="alternatingRowColors">
+                   <bool>true</bool>
+                  </property>
                   <property name="selectionMode">
-                   <enum>QAbstractItemView::MultiSelection</enum>
+                   <enum>QAbstractItemView::ExtendedSelection</enum>
+                  </property>
+                  <property name="sortingEnabled">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>

@@ -30,7 +30,6 @@ private:
     void validatePLZ();
     void updateBankName();
     int calculatePrice();
-    void sortLists();
     QStringList getUserShares();
     static const int pricePerMarket = 1000;
 };
